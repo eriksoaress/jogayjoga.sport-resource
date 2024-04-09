@@ -1,6 +1,12 @@
 server:
   port: 0
 
+springdoc:
+  api-docs:
+    path: /departamentos/v3/api-docs
+  swagger-ui:
+    path: /departamentos/swagger-ui.html
+
 spring:
   application:
     name: jogayjoga-sport

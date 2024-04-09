@@ -5,12 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-
+import io.swagger.v3.oas.annotations.tags.Tag;
 // import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 
 @RestController
+@Tag(name = "Sport", description = "")
 public class SportResource implements SportController {
     
     @Autowired
