@@ -3,9 +3,9 @@ server:
 
 springdoc:
   api-docs:
-    path: /departamentos/v3/api-docs
+    path: /sport/api-docs
   swagger-ui:
-    path: /departamentos/swagger-ui.html
+    path: /sport/swagger-ui.html
 
 spring:
   application:
