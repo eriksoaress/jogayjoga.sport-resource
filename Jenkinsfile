@@ -4,7 +4,7 @@ pipeline {
 
         stage('Build Interface') {
             steps {
-                build job: 'jogayjoga.sport', wait: true
+                build job: 'jogayjoga-sport', wait: true
             }
         }
 
@@ -17,7 +17,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    account = docker.build("jogayjoga/sport:${env.BUILD_ID}", "-f Dockerfile .")
+                    sport = docker.build("eriksoaress/sport:${env.BUILD_ID}", "-f Dockerfile .")
                 }
             }
         }
@@ -26,8 +26,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credential') {
-                        account.push("${env.BUILD_ID}")
-                        account.push("latest")
+                        sport.push("${env.BUILD_ID}")
+                        sport.push("latest")
                     }
                 }
             }
