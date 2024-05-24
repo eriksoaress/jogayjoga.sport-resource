@@ -1,11 +1,14 @@
 package jogayjoga.sport;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
 // import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
@@ -37,6 +40,13 @@ public class SportResource implements SportController {
         // TODO Auto-generated method stub
         return ResponseEntity.ok(sportService.read(id));
     }
+
+
+    @Override
+    public ResponseEntity<List<SportOut>> readall()    {
+        return ResponseEntity.ok(sportService.readAll());
+    }
+    
 
 
 }   
