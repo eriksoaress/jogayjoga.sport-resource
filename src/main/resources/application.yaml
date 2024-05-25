@@ -23,7 +23,7 @@ spring:
       hibernate:
         default_schema: sport
   redis:
-    host: my-redis
+    host: redis
     port: 6379
 
 management:

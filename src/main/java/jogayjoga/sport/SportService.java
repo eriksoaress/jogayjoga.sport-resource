@@ -22,8 +22,9 @@ public class SportService {
         return sportRepository.save(new SportModel(in)).to();
     }
 
-    @Cacheable("sport")
+    @Cacheable(key = "#id", value = "sport", unless = "#result == null")
     public SportOut read(@NonNull String id) {
+        System.out.println("Reading sport id: " + id);
         return SportParser.to(sportRepository.findById(id).map(model -> model.to()).orElse(null));
     }
 
