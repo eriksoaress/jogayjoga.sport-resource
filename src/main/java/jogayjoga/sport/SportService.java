@@ -28,6 +28,23 @@ public class SportService {
         return SportParser.to(sportRepository.findById(id).map(model -> model.to()).orElse(null));
     }
 
+    public void delete(String id) {
+        sportRepository.deleteById(id);
+    }
+
+    public SportOut update(String id, SportUpdateIn in) {
+        Sport sport = sportRepository.findById(id).map(SportModel::to).orElse(null);
+        if (sport == null) {
+            // Handle the case when the sport is not found
+            throw new RuntimeException("Sport not found");
+        }
+        sport.name(in.name()); // Fluent setter
+        SportModel updatedModel = sportRepository.save(new SportModel(sport));
+
+        // Convert the updated Sport object to a SportOut object and return it
+        return SportParser.to(updatedModel.to());
+    }
+
     public List<SportOut> readAll() {
         List<SportModel> sportModels = new ArrayList<>();
         sportRepository.findAll().forEach(sportModels::add);

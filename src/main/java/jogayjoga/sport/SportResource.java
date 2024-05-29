@@ -47,6 +47,15 @@ public class SportResource implements SportController {
         return ResponseEntity.ok(sportService.readAll());
     }
     
+    @Override
+    public ResponseEntity<SportOut> update(String id, SportUpdateIn in) {
+        return ResponseEntity.ok(sportService.update(id, in));
+    }
 
+    @Override
+    public ResponseEntity<?> delete(String id) {
+        sportService.delete(id);
+        return ResponseEntity.ok().build();
+    }
 
 }   
