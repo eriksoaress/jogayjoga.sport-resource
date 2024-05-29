@@ -48,7 +48,7 @@ public class SportResource implements SportController {
     }
     
     @Override
-    public ResponseEntity<SportOut> update(String id, SportUpdateIn in) {
+    public ResponseEntity<SportOut> update(String id, SportIn in) {
         return ResponseEntity.ok(sportService.update(id, in));
     }
 

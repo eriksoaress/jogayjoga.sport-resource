@@ -32,7 +32,7 @@ public class SportService {
         sportRepository.deleteById(id);
     }
 
-    public SportOut update(String id, SportUpdateIn in) {
+    public SportOut update(String id, SportIn in) {
         Sport sport = sportRepository.findById(id).map(SportModel::to).orElse(null);
         if (sport == null) {
             // Handle the case when the sport is not found
